@@ -1,6 +1,6 @@
 # Computational Graph Polynomial Fit
 
-This repository demonstrates a minimal, extensible computational graph framework in Python, supporting forward and backward (autodiff) passes, parameter optimization, and visualization. The main example fits a quadratic polynomial to noisy data using gradient descent.
+This repository demonstrates a minimal, extensible computational graph framework in Python, supporting forward and backward (autodiff) passes, parameter optimization, and visualization. The main example fits a quadratic polynomial to noisy data using gradient descent. This methodology is unpacked further in my blog posts on Neural Net Architecture.
 
 ## Features
 
@@ -68,9 +68,9 @@ pytest
 
 ### Notes
 
-- The framework is extensible: add new node types for more complex operations.
-- The code is educational and minimal, not optimized for production or large-scale deep learning.
+- The framework is extensible. You can add new node types for more complex operations.
+- The code is educational and minimal. This is not optimized for production or large-scale deep learning.
 
 ---
 
-**Enjoy experimenting with computational graphs and autodiff!**
+**Have fun with computational graphs and autodiff!**
