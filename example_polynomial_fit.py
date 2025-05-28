@@ -18,12 +18,12 @@ LR_DECAY = 0.999
 EPOCHS = 300
 LR = 0.01
 
-# # These dont work
-# max_grad = 1000
-# min_lr = 1e-3
-# decay = 0.999
-# epochs = 300
-# lr = 0.1
+# MAX_GRAD = 1e10
+# MIN_LR = 1e-3
+# LR_DECAY = 1
+# EPOCHS = 300
+# LR = 0.1
+
 
 
 def main() -> None:
@@ -40,7 +40,7 @@ def main() -> None:
     y = (
         1.5 * X[:, 0] ** 2
         - 0.5 * X[:, 0]
-        + 0 * X[:, 1] ** 2
+        - 0 * X[:, 1] ** 2
         - 1.0 * X[:, 1]
         + 2
         + 0.2 * np.random.randn(X.shape[0])
@@ -141,13 +141,12 @@ def main() -> None:
                  y=y,
                  params=[p.value for p in constants],
                  save_path="./figures/model_surface.png",
-                 plotly_json_path="./figures/model_surface.json",
                  plotly_path="./figures/model_surface.html"
                  )
     
     plot_training_progress(losses, *param_vals, save_path="./figures/losses.png")
     save_training_progress_plotly(
-        losses, *param_vals, json_path="./figures/losses.json", save_path="./figures/losses.html"
+        losses, *param_vals, save_path="./figures/losses.html"
     )
 
 

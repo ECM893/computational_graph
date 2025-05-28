@@ -128,14 +128,17 @@ def save_training_progress_plotly(losses, *param_lists, save_path=None, json_pat
             side="right",
             tickfont={"color": "black"},
         ),
-        legend=dict(x=0.01, y=0.99),
-        width=900,
-        height=500,
+        legend=dict(
+            x=1,
+            y=1,
+            xanchor="right",
+            yanchor="top"
+        ),
         template="plotly_white",
     )
 
     if save_path is not None:
-        pio.write_html(fig, save_path)
+        pio.write_html(fig, save_path, full_html=True, include_plotlyjs='cdn', config={'responsive': True})
     if json_path is not None:
         with open(json_path, "w") as f:
             f.write(pio.to_json(fig))
@@ -269,13 +272,11 @@ class Model3DPlotter:
                         z=1,
                     ),
                 ),
-                width=800,
-                height=600,
                 legend=dict(x=0.01, y=0.99),
             )
             if plotly_path is not None:
                 os.makedirs(os.path.dirname(plotly_path), exist_ok=True)
-                pio.write_html(fig_plotly, plotly_path)
+                pio.write_html(fig_plotly, plotly_path, full_html=True, include_plotlyjs='cdn', config={'responsive': True})
             if plotly_json_path is not None:
                 os.makedirs(os.path.dirname(plotly_json_path), exist_ok=True)
                 with open(plotly_json_path, "w") as f:

@@ -60,6 +60,7 @@ class ComputationGraph(DirectedGraph):
         Computes and stores the topological order of nodes (post-order DFS from head).
         Ensures all dependencies are visited before a node.
         """
+        # NOTE: I know i probably should solve this with recursion from the head node, but I started and got lazy doing it this way.
         visited = set()
         order = []
 
